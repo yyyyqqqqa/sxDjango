@@ -10,11 +10,13 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
-import os
+import os,sys
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+sys.path.insert(0,os.path.join(BASE_DIR,'sxAdmin'))
+sys.path.insert(0,os.path.join(BASE_DIR,'sxCustomer'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -25,7 +27,7 @@ SECRET_KEY = '%awzcaq-f5b3^rmtjk11*6ux%c_p3xp1xc!p07b&3ggu0b_db_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -36,7 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'sxAdmin.apps.SxadminConfig',
+    'role',
+    'menu',
+    'sxAdmin.user',
+    'stu'
 ]
 
 MIDDLEWARE = [
