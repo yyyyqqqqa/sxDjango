@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7d95515-c234-4325-82a4-7d1fb5cc8492" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sxDjango.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sxDjango.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sx/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/sx/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sxAdmin/menu/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/sxAdmin/menu/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sxAdmin/menu/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/sxAdmin/menu/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sxAdmin/role/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/sxAdmin/role/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sxAdmin/user/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/sxAdmin/user/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sxAdmin/user/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/sxAdmin/user/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sxAdmin/user/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/sxAdmin/user/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sxAdmin/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/sxAdmin/user/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -324,7 +313,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17493297" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -340,7 +328,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.28328612" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.28328612" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
