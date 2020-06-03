@@ -1,7 +1,9 @@
+
+
 from rest_framework import routers
-from .views import UserViewSet
+from .views import MenuViewSet
 
 router = routers.DefaultRouter()
-router.register(r'', UserViewSet, basename='user')
+router.register(r'', MenuViewSet, basename='menu')
 
 urlpatterns = router.urls

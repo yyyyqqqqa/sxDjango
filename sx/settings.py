@@ -11,12 +11,17 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os,sys
+import datetime
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-sys.path.insert(0,os.path.join(BASE_DIR,'sxAdmin'))
-sys.path.insert(0,os.path.join(BASE_DIR,'sxCustomer'))
+app_dir = os.path.join(BASE_DIR,'sxAdmin')
+sys.path.insert(0,app_dir)
+
+cus_dir = os.path.join(BASE_DIR,'sxCustomer')
+sys.path.insert(0,cus_dir)
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -29,7 +34,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,11 +42,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'sxAdmin.role',
-    'sxAdmin.menu',
-    'sxAdmin.user',
-    'rest_framework'
+    'rest_framework',
+    'corsheaders',
+    'common'
+
 ]
+
+APPS = os.listdir(app_dir)
+CUS = os.listdir(cus_dir)
+INSTALLED_APPS.extend(['{}'.format(row) for row in APPS])
+INSTALLED_APPS.extend(['{}'.format(row) for row in CUS])
+
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -53,6 +65,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'user.middleware.AuthMiddleware',
 ]
 
 ROOT_URLCONF = 'sx.urls'
@@ -83,7 +96,7 @@ WSGI_APPLICATION = 'sx.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'test',
+        'NAME': 'ruoyi',
         'USER':'yq',
         'PASSWORD':'yq',
         'HOST':'localhost',
@@ -122,7 +135,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
@@ -131,3 +144,43 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 MEDIA_FILE = os.path.join(BASE_DIR,'media')
+
+
+# drf框架的配置信息
+
+
+
+
+REST_FRAMEWORK = {
+    # 配置默认的认证方式 base:账号密码验证
+    #session：session_id认证
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        # drf的这一阶段主要是做验证,middleware的auth主要是设置session和user到request对象
+        # 默认的验证是按照验证列表从上到下的验证
+        'user.auth.CsrfExemptSessionAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ),
+    'DEFAULT_FILTER_BACKENDS': (
+        'django_filters.rest_framework.DjangoFilterBackend',
+        'rest_framework.filters.SearchFilter',
+        'rest_framework.filters.OrderingFilter',
+    ),
+    'DATETIME_FORMAT': "%Y-%m-%d %H:%M:%S",
+}
+
+#token失效期
+JWT_AUTH = {
+    'JWT_AUTH_COOKIE': 'Authorization',
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(days=7),
+    'JWT_AUTH_HEADER_PREFIX': 'JWT',
+    'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(days=7),
+    'JWT_ALLOW_REFRESH': True,
+}
+
+AUTH_USER_MODEL = 'user.UserModel'
+
+
+CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_ALLOW_ALL = True

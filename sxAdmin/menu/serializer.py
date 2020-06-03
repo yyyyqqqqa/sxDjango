@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from sxAdmin.menu.models import MenuModel
+from menu.models import MenuModel
 
 
 class MenuModelSerializer(serializers.ModelSerializer):

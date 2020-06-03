@@ -1,6 +1,7 @@
 from rest_framework import viewsets
 
 
-class RoleViewSet(viewsets.GenericViewSet):
+class DeptViewSet(viewsets.GenericViewSet):
+
 
     pass

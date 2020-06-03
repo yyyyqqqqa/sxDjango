@@ -12,6 +12,7 @@ build/
 develop-eggs/
 dist/
 venv/
+media/
 downloads/
 eggs/
 .eggs/

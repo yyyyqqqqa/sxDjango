@@ -13,11 +13,16 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-# from django.contrib import admin
-
 from django.urls import path, include
 
-urlpatterns = [
+from sx import settings
 
-    path('sxAdmin/',include('sxAdmin.urls')),
+urlpatterns = [
+    path('common/',include('common.urls'))
 ]
+urls1 = [path('system/{}/'.format(app),  include('{}.urls'.format(app))) for app in settings.APPS]
+urlpatterns.extend(urls1)
+
+urls2 = [path('customer/{}/'.format(app),  include('{}.urls'.format(app))) for app in settings.CUS]
+urlpatterns.extend(urls2)
+

@@ -1,23 +1,31 @@
 from rest_framework import serializers
 
-from sxAdmin.user.models import StudentModel,GradeModel
+from role.serializer import RoleModelSerializer
+
+from dept.serializer import DeptModelSerializer
+from .models import UserModel, UserRoleModel
 
 
+class UserModelSerializer(serializers.ModelSerializer):
 
-class GradeModelSerializer(serializers.ModelSerializer):
+    dept = DeptModelSerializer()
 
     class Meta:
 
-        model = GradeModel
+        model = UserModel
 
         fields = "__all__"
 
 
-class StudentModelSerializer(serializers.ModelSerializer):
 
-    grade = GradeModelSerializer()
+
+class UserRoleModelSerializer(serializers.ModelSerializer):
+
+    users = UserModelSerializer()
+    roles = RoleModelSerializer()
 
     class Meta:
 
-        model = StudentModel
+        model = UserRoleModel
+
         fields = "__all__"

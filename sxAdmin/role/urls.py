@@ -1,7 +1,10 @@
+
+
+
 from rest_framework import routers
-from .views import UserViewSet
+from .views import RoleViewSet
 
 router = routers.DefaultRouter()
-router.register(r'', UserViewSet, basename='user')
+router.register(r'', RoleViewSet, basename='role')
 
 urlpatterns = router.urls
